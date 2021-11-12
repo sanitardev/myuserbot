@@ -61,7 +61,7 @@ def weather(client, message):
 
 @app.on_message(filters.command(["help"], prefixes="."))
 def help(client, message):
-	app.send_message(message.chat.id, 'Мои команды:\n/vzlom - взламывает жопу человека (реплай)\n/time - время в мск\n/weather (Город) - показывет какая сейчас погода в городе\n/random (Первое число) (Второе число) - выбирает случайное число в диапозоне двух чисел, также работает с одним числом')
+	app.send_message(message.chat.id, 'Мои команды:\n.vzlom - взламывает жопу человека (реплай)\n.time - время в мск\n.weather (Город) - показывет какая сейчас погода в городе\n.random (Первое число) (Второе число) - выбирает случайное число в диапозоне двух чисел, также работает с одним числом\n.shakal (фото) - шакалит картинку\n.blur (фото) - блюрит картинку\n.pidoras - ищет пидораса \n.dolbaeb - ищет долбаеба\n.click - кликер')
 
 
 @app.on_message(filters.command(["random"], prefixes="."))
@@ -106,7 +106,7 @@ def bibvitec(client, message):
 	conn.commit()
 	cursor.execute(f"SELECT balance FROM click WHERE user_id = {message.from_user.id}")
 	balance = cursor.fetchone()	
-	app.send_message(message.chat.id, f"+1! На твоем счету {balance[0]} кликов.")
+	app.send_message(message.chat.id, f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) +1! На твоем счету {balance[0]} кликов.", reply_to_message_id=message.message_id)
 	
 @app.on_message(filters.command(["pidoras"], prefixes="."))
 def pidoras(client, message):
