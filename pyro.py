@@ -14,7 +14,6 @@ from config import api_id, api_hash, owmtoken
 import asyncio
 import os
 import requests
-from ImageParser import YandexImage
 
 app = Client("my_account", api_id, api_hash)
 
