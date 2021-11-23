@@ -251,22 +251,6 @@ async def stickers(client, message):
 	cursor.execute(f'INSERT INTO stik (stik_id) VALUES (?)', (idstik,))
 	conn.commit()
 
-@app.on_message(filters.command(["photo"], prefixes="."))
-async def photo(client, message):
-	list1 = []
-	parser = YandexImage()
-	mes_text = message.text.split()
-	mes_text.remove(".photo")
-	text = ' '.join(mes_text)
-	for item in parser.search(text):
-		list1.append(item.url)
-	
-	try:
-		randomurl = random.choice(list1)
-	except IndexError:
-		await app.send_message(message.chat.id, "Фото не найдено!")
-		return
-	print(randomurl)
 
 
 app.run()
